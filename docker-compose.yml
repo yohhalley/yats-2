@@ -1,0 +1,46 @@
+# Local-only stack (ADR-032): Postgres + migrate/seed job + web app + worker.
+# Start with:  cp .env.example .env && docker compose up --build   (or: pnpm start:local)
+name: yats
+
+x-app: &app
+  build: .
+  env_file: .env
+  depends_on:
+    migrate:
+      condition: service_completed_successfully
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-yats}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-yats}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  migrate:
+    build: .
+    env_file: .env
+    command: ["sh", "-c", "pnpm --filter @yats/db migrate && pnpm --filter @yats/db seed"]
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    <<: *app
+    command: ["pnpm", "--filter", "@yats/web", "start"]
+    ports:
+      - "${APP_PORT:-3000}:3000"
+
+  worker:
+    <<: *app
+    command: ["pnpm", "--filter", "@yats/worker", "start"]
+
+volumes:
+  pgdata:

@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# builds
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+next-env.d.ts
+coverage/
+
+# env files: never commit secrets (public repo). Only .env.example is tracked.
+.env*
+!.env.example
+
+# logs / OS / editors
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.DS_Store
+.idea/
+.vscode/

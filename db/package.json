@@ -1,0 +1,20 @@
+{
+  "name": "@yats/db",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Database migrations and seed (placeholders until YATS-003 / YATS-009).",
+  "license": "MIT",
+  "type": "module",
+  "main": "scripts/lib.ts",
+  "types": "scripts/lib.ts",
+  "scripts": {
+    "migrate": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "postgres": "^3.4.5",
+    "tsx": "^4.19.2"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@yats/web",
+  "version": "0.0.0",
+  "private": true,
+  "description": "YATS 2.0 web app: UI plus route handlers that serve the game API (ADR-P10).",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@yats/contracts": "workspace:*",
+    "@yats/rules": "workspace:*",
+    "next": "^15.1.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2"
+  }
+}
