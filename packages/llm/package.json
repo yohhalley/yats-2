@@ -1,0 +1,14 @@
+{
+  "name": "@yats/llm",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Provider-agnostic LLM adapter (ADR-P13). Filled in by YATS-012.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  }
+}

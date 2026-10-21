@@ -1,0 +1,20 @@
+{
+  "name": "@yats/worker",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Small background worker: closes motions and runs async LLM jobs (ADR-P10). Placeholder loop for now.",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "dev": "tsx watch src/main.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@yats/llm": "workspace:*",
+    "tsx": "^4.19.2"
+  }
+}
