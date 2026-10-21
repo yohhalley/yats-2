@@ -1,6 +1,6 @@
 # One image for the local stack: the web app, the worker and the migrate/seed job
 # all run from it with different commands (see docker-compose.yml).
-FROM node:20-slim
+FROM node:22-slim
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm install -g pnpm@10.34.6
 WORKDIR /app

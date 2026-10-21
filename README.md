@@ -22,7 +22,7 @@ Stop with `Ctrl+C`; `docker compose down -v` also wipes the local database.
 
 ## Development
 
-Requirements: Node 20+ and pnpm (`corepack enable` or `npm i -g pnpm`).
+Requirements: Node 22 LTS (see `.nvmrc`) and pnpm (`corepack enable` or `npm i -g pnpm`).
 
 ```sh
 pnpm install
